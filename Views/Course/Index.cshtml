@@ -1,0 +1,39 @@
+﻿@model List<CrudOp.Models.Course>
+@{
+    ViewData["Title"] = "Courses";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Or remove line if _ViewStart.cshtml handles it
+}
+
+<h2>Course List</h2>
+
+<p>
+    @Html.ActionLink("Create New Course", "Create", "Course", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Fees</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CourseName</td>
+                <td>@item.Description</td>
+                <td>@item.Duration</td>
+                <td>@item.Fees</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

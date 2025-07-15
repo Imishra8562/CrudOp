@@ -1,0 +1,19 @@
+﻿@model CrudOp.Models.Course
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Course Details</h2>
+
+<table class="table">
+    <tr><th>Name</th><td>@Model.CourseName</td></tr>
+    <tr><th>Description</th><td>@Model.Description</td></tr>
+    <tr><th>Duration</th><td>@Model.Duration</td></tr>
+    <tr><th>Fees</th><td>@Model.Fees</td></tr>
+    <tr><th>Created Date</th><td>@Model.CreatedDate.ToString("yyyy-MM-dd")</td></tr>
+</table>
+
+@Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }, new { @class = "btn btn-warning" })
+@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+
+
